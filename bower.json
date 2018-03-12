@@ -1,0 +1,6 @@
+{
+  "name": "speedcontrol-simpletext",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

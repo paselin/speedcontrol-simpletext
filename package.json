@@ -1,0 +1,31 @@
+{
+  "name": "speedcontrol-simpletext",
+  "nodecg": {
+    "compatibleRange": "~0.9.0",
+    "dependencies": [
+      "speedcontrol/nodecg-speedcontrol:~0.9"
+    ],
+    "graphics": [
+      {
+        "file": "game-title.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "game-category.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "game-system.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "game-estimate.html",
+        "width": 1280,
+        "height": 720
+      }
+    ]
+  }
+}
