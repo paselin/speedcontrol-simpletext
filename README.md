@@ -14,7 +14,7 @@ Most of the bundle usage should be self explanatory; for the `player.html`/`twit
 
 You will need Node.js and git installed to install NodeCG, then see the [NodeCG documentation](http://nodecg.com/) on how to install that. I also suggest installing `nodecg-cli`; information on that is also on the documentation just linked.
 
-* `nodecg install speedcontrol/nodecg-speedcontrol#master` to install the latest version of nodecg-speedcontrol.
+* `nodecg install speedcontrol/nodecg-speedcontrol` to install the latest version of nodecg-speedcontrol.
 * `nodecg install speedcontrol/speedcontrol-simpletext` to install this layout bundle.
 
 This bundle has no extra configuration options.
