@@ -1,6 +1,6 @@
 {
   "name": "speedcontrol-simpletext",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/speedcontrol/speedcontrol-simpletext.git"
@@ -49,6 +49,11 @@
       },
       {
         "file": "timer.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "donation-total.html",
         "width": 1280,
         "height": 720
       }
