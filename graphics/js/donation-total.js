@@ -16,8 +16,14 @@ $(() => {
 	donationTotal.on('change', (newVal, oldVal) => {
 		// There's no old value on initial page load, so no animation is needed.
 		if (!oldVal) {
-			// "toLocaleString" adds commas to the donation total.
+			// Toggle the commenting on these lines if you don't want cents/pence on your donation totals.
+			// ALSO SEE BELOW INSIDE animateDonationTotal.
+			// Math.floor(newVal) removes the cents/pence.
+			// "toLocaleString" adds commas to the donation total to separate 1000s.
+			
+			//var value = Math.floor(newVal).toLocaleString('en-US', {minimumFractionDigits: 0});
 			var value = newVal.toLocaleString('en-US', {minimumFractionDigits: 0});
+
 			donationTotalElem.html('$'+value); // donation-total.html
 		}
 		
@@ -32,9 +38,16 @@ $(() => {
 		.animateNumber({
 			number: newVal,
 			numberStep: function(now, tween) {
-				var flooredNumber = Math.floor(now);
 				var target = $(tween.elem);
-				var value = flooredNumber.toLocaleString('en-US', {minimumFractionDigits: 0});
+
+				// Toggle the commenting on these lines if you don't want cents/pence on your donation totals.
+				// ALSO SEE ABOVE INSIDE donationTotal.on('change').
+				// Math.floor(now) removes the cents/pence.
+				// "toLocaleString" adds commas to the donation total to separate 1000s.
+
+				//var value = Math.floor(now).toLocaleString('en-US', {minimumFractionDigits: 0});
+				var value = now.toLocaleString('en-US', {minimumFractionDigits: 0});
+
 				target.html('$'+value); // donation-total.html
 			}
 		}, 4000, 'linear');
