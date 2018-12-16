@@ -39,12 +39,8 @@ $(() => {
 			
 			// speedcontrol has the ability to have multiple players in a team,
 			// but for here we'll just return the 1st one.
-			player.html(team.members[0].names.international); // player.html
-			
-			// Extracting Twitch username from provided URI.
-			var twitchUsername = team.members[0].twitch.uri.split('/');
-			twitchUsername = twitchUsername[twitchUsername.length-1];
-			twitch.html(twitchUsername); // twitch.html
+			player.html(team.players[0].name); // player.html
+			twitch.html(team.players[0].social.twitch); // twitch.html
 		}
 	}
 });
