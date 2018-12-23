@@ -8,8 +8,8 @@ $(() => {
 	
 	// This is where the timer information is received.
 	// The "change" event is triggered whenever the time changes or the state changes.
-	var stopwatch = nodecg.Replicant('stopwatch', speedcontrolBundle);
-	stopwatch.on('change', (newVal, oldVal) => {
+	var timer = nodecg.Replicant('timer', speedcontrolBundle);
+	timer.on('change', (newVal, oldVal) => {
 		if (newVal)
 			updateTimer(newVal, oldVal);
 	});
