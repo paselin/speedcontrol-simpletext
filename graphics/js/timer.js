@@ -4,7 +4,7 @@ $(() => {
 	var speedcontrolBundle = 'nodecg-speedcontrol';
 	
 	// JQuery selectors.
-	var timer = $('#timer'); // timer.html
+	var timerElem = $('#timer'); // timer.html
 	
 	// This is where the timer information is received.
 	// The "change" event is triggered whenever the time changes or the state changes.
@@ -18,9 +18,9 @@ $(() => {
 	function updateTimer(newVal, oldVal) {
 		// Change class on the timer to change the colour if needed.
 		// See the common.css file for more information.
-		if (oldVal) timer.toggleClass('timer_'+oldVal.state, false);
-		timer.toggleClass('timer_'+newVal.state, true);
+		if (oldVal) timerElem.toggleClass('timer_'+oldVal.state, false);
+		timerElem.toggleClass('timer_'+newVal.state, true);
 		
-		timer.html(newVal.time); // timer.html
+		timerElem.html(newVal.time); // timer.html
 	}
 });
