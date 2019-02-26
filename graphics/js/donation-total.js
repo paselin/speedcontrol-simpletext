@@ -1,18 +1,17 @@
 'use strict';
 $(() => {
-	// The bundle name where all the information is pulled from.
-	var tiltifyBundle = 'speedcontrol-tiltify'
+	// TO GET DONATION TOTALS, YOU MUST INSTALL AN EXTRA BUNDLE THAT SUPPLIES THEM (SEE THE nodecg-speedcontrol DOCUMENTATION).
+	// The bundle name where all the tracker information is pulled from.
+	// Here, we're listening for the Tiltify total by default.
+	// Other bundle names that could be supplied here: speedcontrol-srcomtracker
+	var trackerBundle = 'speedcontrol-tiltify'
 	
 	// JQuery selectors.
 	var donationTotalElem = $('#donationTotal'); // donation-total.html
 	
-	// TO GET DONATION TOTALS, YOU MUST INSTALL AN EXTRA BUNDLE THAT SUPPLIES THEM (SEE THE nodecg-speedcontrol DOCUMENTATION).
 	// This is where the donation total is received.
 	// The "change" event is triggered when the donation total changes.
-	// Here, we're listening for the Tiltify total by default.
-	// These are the other replicants you could use (might need some other tweaks):
-	// srcomDonationTotal - Speedrun.com
-	var donationTotal = nodecg.Replicant('tiltifyDonationTotal', tiltifyBundle);
+	var donationTotal = nodecg.Replicant('donationTotal', trackerBundle);
 	donationTotal.on('change', (newVal, oldVal) => {
 		// There's no old value on initial page load, so no animation is needed.
 		if (!oldVal) {
