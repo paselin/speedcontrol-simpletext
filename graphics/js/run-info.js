@@ -37,10 +37,11 @@ $(() => {
 			// Arrays start from 0 and not 1, so have to adjust for that.
 			var team = runData.teams[playerNumber-1];
 			
-			// speedcontrol has the ability to have multiple players in a team,
-			// but for here we'll just return the 1st one.
-			player.html(team.players[0].name); // player.html
-			twitch.html(team.players[0].social.twitch); // twitch.html
+			// If a team has multiple players, this currently just outputs them in a comma'd list.
+			if (team) {
+				player.html(team.players.map((player) => player.name).join(', '));
+				twitch.html(team.players.map((player) => player.social.twitch).join(', '));
+			}
 		}
 	}
 });
