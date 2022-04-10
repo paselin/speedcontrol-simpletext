@@ -12,7 +12,6 @@ Most of the bundle usage should be self explanatory; for the `player.html`/`twit
 
 
 ## Installation
-
-See the [installation instructions on nodecg-speedcontrol](https://github.com/speedcontrol/nodecg-speedcontrol#installation) on how to install that bundle, and then (if you installed `nodecg-cli`) run `nodecg install speedcontrol/speedcontrol-simpletext` to install this bundle.
+If you don't have `bower` installed, then `npm install -g bower` and see the [installation instructions on nodecg-speedcontrol](https://github.com/speedcontrol/nodecg-speedcontrol#installation) on how to install that bundle, and then (if you installed `nodecg-cli`) run `nodecg install speedcontrol/speedcontrol-simpletext` to install this bundle.
 
 This bundle has no extra configuration options.
