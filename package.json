@@ -43,6 +43,27 @@
         "height": 720
       },
       {
+        "file": "next/game-title.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "next/game-category.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "next/game-estimate.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "next/player.html",
+        "width": 1280,
+        "height": 720
+      },
+
+      {
         "file": "twitch.html",
         "width": 1280,
         "height": 720
