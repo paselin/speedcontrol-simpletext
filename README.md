@@ -8,7 +8,7 @@ If you need to edit/learn, look at the files in the `graphics` folder, mostly th
 
 *A note about players:* nodecg-speedcontrol actually supports multiple players within "teams", but to keep things simple, we have made the `player.html`/`twitch.html` graphics only return the 1st player's data in a team for now. This will only affect you if you have co-op runs in your marathon.
 
-Most of the bundle usage should be self explanatory; for the `player.html`/`twitch.html` and `next/*.html` graphics, you can add a hash parameter to the end of the URL to select the team number, for example `http://localhost:9090/bundles/speedcontrol-simpletext/graphics/player.html#2`.
+Most of the bundle usage should be self explanatory; for the `player.html`/`twitch.html` graphics, you can add a hash parameter to the end of the URL to select the team number, for example `http://localhost:9090/bundles/speedcontrol-simpletext/graphics/player.html#2`.
 
 
 ## Installation
