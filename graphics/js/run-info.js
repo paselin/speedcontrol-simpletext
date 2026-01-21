@@ -115,33 +115,42 @@ $(() => {
 			}
 		})
 
-		// 解説更新
-		nodecg.readReplicant('commentatorArray', speedcontrolAdditionsBundle,runDatas => {
-			var commentators = []
-			runDatas.forEach( data => {
-				if (data.assignedRunIdArray.includes(runData.id)) {
-					commentators.push(data);
-				}
-			});
-			cTwitch.html("-");
-			cYoutube.html("-");
-			cTwitter.html("-");
-			commentator.html("");
-			if (commentators.length) {
-				var commentatorNumber = parseInt(window.location.hash.replace('#', '')) || 0;
-				commentator.html(commentators[commentatorNumber].name);
-				if (commentators[commentatorNumber].social.twitch) {
-					cTwitch.html(commentators[commentatorNumber].social.twitch);
-				}
-				if (commentators[commentatorNumber].social.youtube) {
-					cYoutube.html(commentators[commentatorNumber].social.youtube);
-				}
-				if (commentators[commentatorNumber].social.twitter) {
-					cTwitter.html(commentators[commentatorNumber].social.twitter);
-				}
-			} else {
-				
-			}
+		// 解説更新 (nodecg-commentator-manager から取得)
+		nodecg.readReplicant('activeRunCommentators', 'nodecg-commentator-manager', commentators => {
+			updateCommentatorInfo(commentators);
 		});
+	}
+
+	function updateCommentatorInfo(commentators) {
+		// 初期化
+		cTwitch.html("-");
+		cYoutube.html("-");
+		cTwitter.html("-");
+		commentator.html("");
+		
+		// activeRunCommentators が存在し、配列に要素がある場合
+		if (commentators && commentators.length) {
+			// URL のハッシュ (#1, #2 など) で解説者番号を指定可能
+			var commentatorNumber = parseInt(window.location.hash.replace('#', '')) || 0;
+			
+			// 指定された番号の解説者が存在する場合
+			if (commentators[commentatorNumber]) {
+				var currentCommentator = commentators[commentatorNumber];
+				
+				// 名前を表示
+				commentator.html(currentCommentator.name);
+				
+				// SNS アカウントがあれば表示
+				if (currentCommentator.social.twitch) {
+					cTwitch.html(currentCommentator.social.twitch);
+				}
+				if (currentCommentator.social.youtube) {
+					cYoutube.html(currentCommentator.social.youtube);
+				}
+				if (currentCommentator.social.twitter) {
+					cTwitter.html(currentCommentator.social.twitter);
+				}
+			}
+		}
 	}
 });
