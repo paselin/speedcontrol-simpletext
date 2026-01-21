@@ -13,6 +13,10 @@ $(() => {
     
     var runDataActiveRun = nodecg.Replicant('runDataActiveRun', speedcontrolBundle);
     runDataActiveRun.on('change', (newVal, oldVal) => {
+        gameTitle.html("")
+        gameCategory.html("")
+        gameEstimate.html("")
+        player.html("")
         if (newVal) {
             nodecg.readReplicant('runDataArray', speedcontrolBundle, runDatas => {
                 var currentFound = false;

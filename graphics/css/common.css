@@ -23,7 +23,7 @@ html, body {
 
 /* Different colours for each state the timer can be in. */
 /* The state is set by JavaScript in timer.js. */
-.timer_running {color: black;}
-.timer_stopped {color: gray;}
-.timer_paused {color: gray;}
-.timer_finished {color: green;}
+.timer_running {color: white;}
+.timer_stopped {color: lightgray;}
+.timer_paused {color: lightgray;}
+.timer_finished {color: yellow;}

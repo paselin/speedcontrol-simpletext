@@ -22,12 +22,29 @@ $(() => {
 	// The "change" event is triggered when the current run is changed.
 	var runDataActiveRun = nodecg.Replicant('runDataActiveRun', speedcontrolBundle);
 	runDataActiveRun.on('change', (newVal, oldVal) => {
+		init()
 		if (newVal) {
 			updateSceneFields(newVal);
 			updateAddtionsBundle(newVal);
 		}
 	});
 	
+	function init() {
+		gameTitle.html("")
+		gameCategory.html("")
+		gameSystem.html("")
+		gameEstimate.html("")
+		player.html("")
+		twitch.html("")
+		youtube.html("")
+		twitter.html("")
+		commentator.html("")
+		cTwitch.html("")
+		cYoutube.html("")
+		cTwitter.html("")
+
+	}
+
 	// Sets information on the pages for the run.
 	function updateSceneFields(runData) {
 		gameTitle.html(runData.game); // game-title.html
@@ -106,26 +123,24 @@ $(() => {
 					commentators.push(data);
 				}
 			});
+			cTwitch.html("-");
+			cYoutube.html("-");
+			cTwitter.html("-");
+			commentator.html("");
 			if (commentators.length) {
 				var commentatorNumber = parseInt(window.location.hash.replace('#', '')) || 0;
 				commentator.html(commentators[commentatorNumber].name);
 				if (commentators[commentatorNumber].social.twitch) {
 					cTwitch.html(commentators[commentatorNumber].social.twitch);
-				} else {
-					cTwitch.html("-");
 				}
 				if (commentators[commentatorNumber].social.youtube) {
 					cYoutube.html(commentators[commentatorNumber].social.youtube);
-				} else {
-					cYoutube.html("-");
 				}
 				if (commentators[commentatorNumber].social.twitter) {
 					cTwitter.html(commentators[commentatorNumber].social.twitter);
-				} else {
-					cTwitter.html("-");
 				}
 			} else {
-				commentator.html("");
+				
 			}
 		});
 	}
