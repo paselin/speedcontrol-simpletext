@@ -98,7 +98,12 @@
         "height": 720
       },
       {
-        "file": "player_social.html",
+        "file": "player-social.html",
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "file": "commentator-social.html",
         "width": 1280,
         "height": 720
       }
