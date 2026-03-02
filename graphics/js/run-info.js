@@ -2,7 +2,6 @@
 $(() => {
 	// The bundle name where all the run information is pulled from.
 	var speedcontrolBundle = 'nodecg-speedcontrol';
-	var speedcontrolAdditionsBundle = 'speedcontrol-additions';
 	
 	// JQuery selectors.
 	var gameTitle = $('#gameTitle'); // game-title.html
@@ -78,42 +77,21 @@ $(() => {
 	}
 
 	function updateAddtionsBundle(runData) {
-		// ソーシャル系更新
-		nodecg.readReplicant('speedcontrolUserAdditionArray', speedcontrolAdditionsBundle,userDatas => {
-			console.log(userDatas)
-			if (youtube.length || twitter.length) {
-				var playerNumber = parseInt(window.location.hash.replace('#', '')) || 1;
-				var team = runData.teams[playerNumber-1];
-				if (team) {
-					var playerIds = []
-					var playerYT = []
-					var playerTwitter = []
+		// Twitter情報を nodecg-player-manager から取得
+		if (twitter.length) {
+			var playerNumber = parseInt(window.location.hash.replace('#', '')) || 1;
+			var team = runData.teams[playerNumber-1];
+			if (team) {
+				nodecg.readReplicant('playerTwitterMap', 'nodecg-player-manager', twitterMap => {
+					var playerTwitter = [];
 					for (var player of team.players) {
-						playerIds.push(player.id)
-						playerYT.push("-")
-						playerTwitter.push("-")
+						var twitterHandle = twitterMap && twitterMap[player.id] ? twitterMap[player.id] : "-";
+						playerTwitter.push(twitterHandle);
 					}
-					if (playerIds.length) {
-						for (const [index,id] of Object.entries(playerIds)) {
-							for (var data of userDatas) {
-								if (data.id === id) {
-									if (data.social.youtube) {
-										playerYT[index] = data.social.youtube;	
-									}
-									if (data.social.twitter) {
-										playerTwitter[index] = data.social.twitter;
-									}
-									break
-								}
-							}
-						}
-
-						youtube.html(playerYT.join(', '));
-						twitter.html(playerTwitter.join(', '));
-					}
-				}
+					twitter.html(playerTwitter.join(', '));
+				});
 			}
-		})
+		}
 
 		// 解説更新 (nodecg-commentator-manager から取得)
 		nodecg.readReplicant('activeRunCommentators', 'nodecg-commentator-manager', commentators => {
