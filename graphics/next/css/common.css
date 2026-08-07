@@ -19,7 +19,7 @@ html, body {
 
 /* Adds text before/after the estimate to improve the look. */
 /* You could also use this idea with things that aren't the estimate. */
-#gameEstimate:before {content: 'EST: ';} /* A label to explain what the numbers actually are. */
+#nextGameEstimate:before {content: 'EST: ';} /* A label to explain what the numbers actually are. */
 
 /* Different colours for each state the timer can be in. */
 /* The state is set by JavaScript in timer.js. */
