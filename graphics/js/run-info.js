@@ -34,13 +34,13 @@ $(() => {
 		gameSystem.html("")
 		gameEstimate.html("")
 		player.html("")
-		twitch.html("")
-		youtube.html("")
-		twitter.html("")
+		twitch.html("-")
+		youtube.html("-")
+		twitter.html("-")
 		commentator.html("")
-		cTwitch.html("")
-		cYoutube.html("")
-		cTwitter.html("")
+		cTwitch.html("-")
+		cYoutube.html("-")
+		cTwitter.html("-")
 
 	}
 
